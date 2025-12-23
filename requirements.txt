@@ -1,0 +1,10 @@
+# gRPC dependencies
+grpcio>=1.60.0
+grpcio-tools>=1.60.0
+protobuf>=4.25.0
+
+# GitLab API client
+python-gitlab>=4.4.0
+
+# Optional: for better environment variable handling
+python-dotenv>=1.0.0
