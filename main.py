@@ -169,13 +169,13 @@ def main():
     gitlab_cert = os.getenv('GITLAB_CERT_PATH')  # Optional: path to GitLab CA certificate
 
     # Dex configuration from environment variables
-    dex_host = os.getenv('DEX_HOST', 'dex.example.com:5557')  # Dex gRPC endpoint
+    dex_host = os.getenv('DEX_HOST')  # Dex gRPC endpoint
     dex_cert = os.getenv('DEX_CERT_PATH')  # Optional: path to Dex CA certificate
 
     check_interval = int(os.getenv('CHECK_INTERVAL', '30'))  # Default 30 seconds
 
-    if not all([gitlab_token, gitlab_url, project_id]):
-        print("Error: GITLAB_TOKEN, GITLAB_URL, and GITLAB_PROJECT_ID environment variables must be set")
+    if not all([gitlab_token, gitlab_url, project_id, dex_host]):
+        print("Error: GITLAB_TOKEN, GITLAB_URL, GITLAB_PROJECT_ID, and DEX_HOST environment variables must be set")
         sys.exit(1)
 
     print(f"Starting MR monitor for project: {project_id}")
